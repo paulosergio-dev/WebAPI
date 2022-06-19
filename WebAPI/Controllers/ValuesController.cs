@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/webservice")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -17,17 +17,19 @@ namespace WebAPI.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/webservice/lercliente/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [Route("lercliente/{id}")]
+        public string LerCliente(int id)
         {
-            return "value";
+            return id.ToString();
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
+        [Route("gravardados")]
+        public void GravarDados([FromBody] string value)
+        {            
         }
 
         // PUT api/values/5
